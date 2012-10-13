@@ -1,7 +1,6 @@
-CS169x course
-=============
-
-SaaS
+BerkeleyX: CS169.1x Software as a Service
+=========================================
+october 2012
 
 Homework
 --------
