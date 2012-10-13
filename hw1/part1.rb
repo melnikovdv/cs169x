@@ -4,36 +4,56 @@
 
 
 def palindrome?(str)
-  # YOUR CODE HERE
+	str = str.gsub(/[\W ]/, "")	
+	if (str.downcase <=> str.reverse.downcase) == 0
+		return true
+	else 
+		return false
+	end
 end
 
 def count_words(str)
-  # YOUR CODE HERE
+	result = Hash.new
+	arr = str.split(/[\W]/)
+	arr.each { | word |
+		word = word.downcase
+		if result.has_key?(word)		
+			result[word] = result[word] + 1		
+		else 
+			result[word] = 1
+		end	
+	}
+	
+	puts result
+  	return result
 end
 
 
-#the code below this line will test your functions.  You should remove everything below this line prior to submitting your file
+# the code below this line will test your functions.  You should remove everything below this line prior to submitting your file
+
+# test_str = "there goes the neighborhood"
+
+# if palindrome? test_str
+#   puts test_str + " is a palindrome!"
+# else
+#   puts test_str + " is NOT a palindrome!"
+# end
+
+# test_str = "Madam, I'm Adam"
+
+# if palindrome? test_str
+#   puts test_str + " is a palindrome!"
+# else
+#   puts test_str + " is NOT a palindrome!"
+# end
 
 
-test_str = "there goes the neighborhood"
+# test_str = "The rent is due on the first day of the month unless the first day of the month falls on a Saturday or Sunday"
 
-if palindrome? test_str
-  puts test_str + " is a palindrome!"
-else
-  puts test_str + " is NOT a palindrome!"
-end
+# word_count = count_words test_str
+# puts word_count
 
+# test_str = "The rent is rent"
 
-test_str = "Madam, I'm Adam"
-
-if palindrome? test_str
-  puts test_str " is a palindrome!"
-else
-  puts test_str " is NOT a palindrome!"
-end
-
-
-test_str = "The rent is due on the first day of the month unless the first day of the month falls on a Saturday or Sunday"
-
-word_count = count_words test_str
-puts word_count
+# word_count = count_words test_str
+# puts word_count
